@@ -13,7 +13,7 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : Timothy Duffy
 description              : Timothy Duffy - Projects and CV 
-baseurl                  : "/sp26-portfolio-twd37/" # Set this to your repo name 
+baseurl                  : "/sp26-portfolio-twd37-dotcom/" # Set this to your repo name 
 
 # Theme and Style
 theme: jekyll-theme-minimal
