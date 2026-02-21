@@ -1,6 +1,6 @@
 ---
 layout: default
-title: <Timothy Duffy> - Curriculum Vitae
+title: Timothy Duffy - Curriculum Vitae
 permalink: /cv/
 ---
 ## Curriculum Vitae
