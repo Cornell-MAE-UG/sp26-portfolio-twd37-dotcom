@@ -2,6 +2,7 @@
 layout: project
 title: SLF Client Outline and Pitch
 description: Pitch to Grape Growers
+technologies:[None]
 image: /assets/images/SLF_vines.jpg
 ---
 
