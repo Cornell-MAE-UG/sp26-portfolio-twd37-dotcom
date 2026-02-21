@@ -1,6 +1,6 @@
 ---
 layout: default
-title: <Timothy Duffy>
+title: Timothy Duffy
 ---
 
 ## About Me
