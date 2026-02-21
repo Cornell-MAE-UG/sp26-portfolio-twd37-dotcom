@@ -1,6 +1,6 @@
 ---
 layout: default
-title: <Timothy Duffy> - Portfolio
+title: Timothy Duffy - Portfolio
 permalink: /projects/
 ---
 
