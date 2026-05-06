@@ -50,5 +50,5 @@ Then, our primary container was altered using a dremel and hand saw to cut out s
 | Epoxy | $7.98 |
 | **TOTAL** | **$183.34** |
 
-![Table]({{ "/assets/images/presentation.jpg" | relative_url }}){: style="width: 250px; height: auto;" }
+![Table]({{ "/assets/images/presentation.jpg" | relative_url }}){: style="width: 600px; height: auto;" }
 
