@@ -198,4 +198,26 @@ footer {
   transform: translateX(-4px);
 }
 
+.milestone-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0 28px;
+}
+
+.milestone-nav a {
+  display: inline-block;
+  padding: 10px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  color: $text-color;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.milestone-nav a:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
 
