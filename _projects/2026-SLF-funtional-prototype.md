@@ -10,7 +10,6 @@ Design Documentation:
 Parts List:
 
 
-![Shaded rendering of earlier version]({{ "/assets/images/table.png" | relative_url }}){: .inline-image-r style="width: 200px"}
 
 Nulla et magna urna. Morbi a ipsum sollicitudin, rhoncus risus volutpat, ultricies nunc. Quisque mollis finibus ante id imperdiet. Quisque vehicula elit sit amet felis facilisis fermentum.
 
