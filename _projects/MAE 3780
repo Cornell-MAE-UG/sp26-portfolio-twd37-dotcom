@@ -3,23 +3,189 @@ layout: project
 title: Mechatronics Robot
 description: Robot
 technologies: [Arduino]
-image: /assets/images/radio-machine-cad.jpg
+image: /assets/images/circuitdiagram.png
 ---
 
-For a class, we were asked to CAD a complex object. This design was...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec accumsan leo. Pellentesque ornare orci enim, vitae vestibulum nibh rutrum in. Donec pharetra risus nec ipsum fringilla, et mattis tortor auctor. Duis tortor ante, posuere ut odio a, scelerisque interdum purus. Aenean faucibus luctus est, sed bibendum tellus. 
+Robot Design and Strategy Overview
+Within the MAE 3780 Robot Competition, the primary objective of the competition was to build an autonomous robot that is placed in a 4 by 3.5 foot arena and collect 1 by 1 by 1 wooden boxes placed along the centerline. In order to win, this robot needed to collect more wooden blocks by the end of a one minute period than the other robot that is placed on the other side of the arena. With this set up process, this brought up the design requirements to:
+Have an autonomous robot
+Make sure this robot doesn’t go outside of the bounding box
+Don’t collide with the other robot in the arena 
+Find a way to have the robot keep all the blocks that it is collecting during that minute duration. 
+	From these requirements we designed a robot that had a frame around it for the robot to encase blocks around it. We also added a triangle nose piece in the front of the robot for no blocks to get caught underneath the robot, but get pushed around the robot and get caught into the frame around the robot. See appendix c for the initial design drawings of the robot and other final photos of the robot from competition. 
+![Presentation image]({{ "/assets/images/robot1.png" | relative_url }}){: style="width: 600px; height: auto;" }
+	For the coding strategy we determined that we wanted to have the robot be pointed towards the end of the line of blocks, towards the boundary, and run a loop that moves its forward until hitting the boundary, and then it rotates a random number of degrees right. We wanted the robot to turn right each time it hit a boundary because the frame was around the right side of the robot, so that every time it would turn right, the blocks it already collected would sit further in the frame and not slide out. Overall, our coding strategy was to get the robot to bounce around the board randomly collecting the blocks that were in its path. This strategy allowed us to complete the first design requirements we set, through the code, with the third being met through initially pointing the robot towards the corner the other robot is not directed towards, and the final objective through creating the frame around the robot. 
+	The mounting for the color sensor was as far in front of the robot as possible so it could sense the boundary before the robot would get off the board. The color sensor was physically mounted through a standoff in the front of the robot with double sided tape and duct tape supporting the sensor to the body of the robot. 
 
-Nulla et magna urna. Morbi a ipsum sollicitudin, rhoncus risus volutpat, ultricies nunc. Quisque mollis finibus ante id imperdiet. Quisque vehicula elit sit amet felis facilisis fermentum.
+Design Process Reflection
+	During our design process, we originally had the plan for creating the frame out of bent sheet metal, and using the standoffs as supports onto the robot. However, after mocking up the design with cardboard, we found the cardboard was easier to work with and lighter, while still allowing the rigidity we needed in the competition. The lighter frame also allowed the robot to maneuver quicker and we found that it was not dragging on the table as much as other team’s laser cut or sheet metal designs. 
+The only other major mechanical design change we implemented was moving the frame from primarily wrapping around the right side of the robot, to the robot being centered in the frame, and adjusting the nose piece in the front so that it pushes the blocks to either side. With the original design of the frame being on the right side, it caused the weight distribution to be biased, and often caused the robot to lean rightward when trying to drive straight. With the robot being centered in the frame, it allowed it to drive straight, and did not affect its ability to collect blocks. 
+	In terms of the coding strategy, we kept our original design for the competition, which worked well within the milestones, especially because milestone 3 tends to our plan for the competition. Within the completion of milestone 4, we did hit a minor roadboad with the color sensor having an issue distinguishing between black and blue. With our strategy being that our robot moved around the board until it hit a boundary and turned in a random direction, when the sensor couldn’t distinguish between black and blue, it would often end up spinning in circles in a corner on the blue side. To fix this problem we looked at another code that we use to output the number of the color in the serial monitor, and then went back into our competition code to adjust our boundary for reading black. 
 
-![Shaded rendering of earlier version]({{ "/assets/images/radio-machine.jpg" | relative_url }}){: .inline-image-r style="width: 200px"}
+Competition Analysis
+	Within the competition, we found that the lighting in duffield was extreme enough that it was affecting the readings of the color sensor, and our bound for the black border was not good enough to the color black. Within our first round, our robot collected 4 blocks and then fell off the boundary, unable to stop. The other robot collected 5 blocks. Within the next round, we tried to try different variations of lighting for the color sensor. We took pieces of duct tape and covered parts of the lights in order to make the sensor reading give higher values to hit the bound. We later found in another round that sometimes this would cause the sensor to not differentiate between black and blue, and cause the spinning problem within a corner of the blue side. By the end of round robin, we were still unable to find a good balance for how many lights to cover in order for the sensor to work properly, so our strategy became to point the robot in the direction to get the most amount of cubes, determined by how the cones were spread out, and where the other robot was pointed. 
 
-Nulla et magna urna. Morbi a ipsum sollicitudin, rhoncus risus volutpat, ultricies nunc. Quisque mollis finibus ante id imperdiet. Quisque vehicula elit sit amet felis facilisis fermentum.
+Conclusions
+	If we were to repeat this project we would focus more on the consistency of the color sensor or switching our detection logic to use a QTI. In our code there was no importance in detecting yellow versus blue, so the QTI sensor with a large resistor would have been a path worth at least testing for the robot. Otherwise it would have been useful to create a casing around the color sensor exposing it only to the ground such that the lighting for the sensor was more consistent amongst lighting conditions. The housing/shell for the robot operated correctly, and increased complexity in that regard would have marginal gains. The very simple funnel mechanism operated correctly as the blocks were very light and had negligible friction with the smooth board.
+	I would recommend to future students that the rubber bands wrapped around wheels is a very useful tool for increasing traction when robots eventually clash on competition day, essentially decreasing the odds your robot is pushed off the board. However if the housing area for blocks is nearby to the wheels, they can get caught and dislodge the wheels from the motors if they are not screwed in or stall motion if they are secured, so some thought must go into keeping the blocks away from the wheels. There’s also the consideration of larger wheels/gearing the motor to the wheels to increase speed. I would argue that unless a group commits fully to a high speed robot that can quickly reach the center and collect a decent sum of cubes that the tradeoff is very risky as the round goes on as you are at risk of being pushed off but it’s an interesting consideration.
+	
 
-Aenean tincidunt aliquam arcu, in euismod dui dapibus eu. In placerat, mi et ultrices consequat, quam ligula cursus mauris, in semper neque nibh at est. Maecenas hendrerit dignissim porta. Phasellus nec fringilla dolor. Etiam efficitur nisi sit amet velit pharetra feugiat. Etiam ultrices turpis at leo semper, eleifend scelerisque neque malesuada. Aliquam molestie congue rhoncus. Donec blandit neque dolor, nec tristique mi pretium ac. Mauris tincidunt ullamcorper magna, nec pellentesque mi sagittis quis.
 
-I was inspired by this old radio when I made this rendering:
 
-![Photo of old radio]({{ "/assets/images/old-radio.jpg" | relative_url }}){: .inline-image-l}
 
-Aenean tincidunt aliquam arcu, in euismod dui dapibus eu. In placerat, mi et ultrices consequat, quam ligula cursus mauris, in semper neque nibh at est. Maecenas hendrerit dignissim porta. Phasellus nec fringilla dolor. Etiam efficitur nisi sit amet velit pharetra feugiat. Etiam ultrices turpis at leo semper, eleifend scelerisque neque malesuada. Aliquam molestie congue rhoncus. Donec blandit neque dolor, nec tristique mi pretium ac. Mauris tincidunt ullamcorper magna, nec pellentesque mi sagittis quis.
 
-Aenean tincidunt aliquam arcu, in euismod dui dapibus eu. In placerat, mi et ultrices consequat, quam ligula cursus mauris, in semper neque nibh at est. Maecenas hendrerit dignissim porta. Phasellus nec fringilla dolor. Etiam efficitur nisi sit amet velit pharetra feugiat. Etiam ultrices turpis at leo semper, eleifend scelerisque neque malesuada. Aliquam molestie congue rhoncus. Donec blandit neque dolor, nec tristique mi pretium ac. Mauris tincidunt ullamcorper magna, nec pellentesque mi sagittis quis.
+
+
+
+
+Appendix A - Bill of Materials
+2 Rubber Bands
+75 sq in of Cardboard
+60 sq in sheet metal (unused)
+Appendix B - Circuit Diagram
+
+![Presentation image]({{ "/assets/images/circuitdiagram.png" | relative_url }}){: style="width: 600px; height: auto;" }
+
+
+
+
+
+
+
+
+
+
+Appendix C - CAD files and Drawings
+![Presentation image]({{ "/assets/images/drawings.jpg" | relative_url }}){: style="width: 600px; height: auto;" }
+![Presentation image]({{ "/assets/images/robot2.png" | relative_url }}){: style="width: 600px; height: auto;" }
+
+Rubber band mass: 2 size 64 rubber bands @320 bands per lb →1/320 lbs *453.592g/lb =  1.42g each = 2.84g
+Cardboard volume: 75 sq in * 1/8 in thickness = 9.375 cubic in of cardboard
+Cardboard mass: 0.69g/cm^3, 9.375in^3 = 153.629cm^3, 153.629cm^3*0.69g/cm^3 = 106.0 g
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Appendix D - Flowchart
+![Presentation image]({{ "/assets/images/flowchart.png" | relative_url }}){: style="width: 600px; height: auto;" }
+
+
+Appendix E - Code
+volatile int period;
+// "timer" : stores the value of TIMER1 
+volatile int timer;
+//const int threshold = 60; // some threshold number.
+volatile int spin_delay; //define spin delay - initially 90 deg turn
+// --- ISR: an interrupt function that resets and reads the timer value
+ISR(PCINT2_vect) //when the pin changes
+{	
+  if (PIND & 0b00001000) { // if PD3 true then set timer to zero.
+    // resets the timer to zero on a rising edge,
+    TCNT1 = 0;
+  } else { // else if PD0 is false store timer value.
+      // and stores the timer value in a variable ("timer") on a falling edge (or vice versa).
+    timer = TCNT1;
+  }
+}
+// --- initColor: initializes the interrupt and timer 
+void initColor()
+{
+  // a.	Initialize your I/O pins
+  DDRD |= 0b00010000; //PD4 is output rest input
+  DDRD &= 0b00001000; //PD3 is input
+  // b. Initialize my pin change interrupt
+  PCICR |= 0b00000100; //PD3 input
+  // c.	Initialize your timer
+  TCCR1A = 0;
+  TCCR1B = 0b00000001;
+}
+// --- getColor: calculates the period of the sensor output wave and returns it as a variable
+int getColor()
+{
+  // a.	Enable the specific bit for your Pin Change Interrupt
+  PCMSK2 |= 0b00001000;   
+  // b.	Add a short delay (5 ~ 10 milliseconds)
+  _delay_ms(5);
+  // c.	Disable the specific bit for your pin change interrupt
+  // (to prevent further interrupts until you call getColor again)
+  PCMSK2  &= ~0b00001000;
+  // d.	Return the period in units of time
+  return 2*timer;
+}
+void drive_forward(int time) {
+  DDRB = 0b00001111; // enable output pins
+  TCCR1B &= 0b00000110;
+  	PORTB = (PORTB & 0b11110000) | 0b00000110; //set pin 9 & 10 high
+	_delay_ms(time);
+}
+void drive_backward(int time) {
+  DDRB = 0b00001111; // enable output pins
+  TCCR1B &= 0b00000110;
+  	PORTB = (PORTB & 0b11110000) | 0b00001001; //set pin 8 & 11 high
+	_delay_ms(time);
+}
+void turn_left(int time) {
+  DDRB = 0b00001111; // enable output pins
+  TCCR1B &= 0b00000110;
+  	PORTB = (PORTB & 0b11110000) | 0b00001010; //set pin 9 and 11 high
+	_delay_ms(time);
+}
+void turn_right(int time) {
+  DDRB = 0b00001111; // enable output pins
+  TCCR1B &= 0b00000110;
+  	PORTB = (PORTB & 0b11110000) | 0b00000101; //set pin 8 and 10 high
+	_delay_ms(time);
+}
+void stop() {
+  DDRB = 0b00001111; // enable output pins
+  TCCR1B &= 0b00000110;
+  	PORTB &= 0b11110000; //set pins 8-11 low
+}
+int main(void){ // setup code that only runs once
+  // set pins 8 and 9 as outputs for "left" motor
+  init();
+  initColor();
+  sei();
+  Serial.begin(9600);
+
+  //int color; //yellow = 0, blue = 1
+  int black_bound = 7600;
+  int blue_bound = 2000;
+  //int start_period;
+  int period = getColor(); 
+  int spin_delay = 550; 
+  while(1){
+    while(period<black_bound){
+      drive_forward(10);
+      initColor();
+      period = getColor();
+      }
+    stop();
+    //drive_backward(200);
+    for (int i = 0; i <= spin_delay; i = i + 1){
+      turn_left(1);
+    }
+    //spin_delay = rand()%1000;//srand()%8000;; 
+    if (spin_delay >= 1000){
+      drive_forward(100); 
+      spin_delay = 0; 
+    }
+    //start_seed = start_seed + 1; 
+    spin_delay = spin_delay + 100; 
+    initColor();
+    period = getColor();
+  }
+}
+
+
